@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="Icon" type="image/png"  href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+      
+    <!-- Header -->
+    <header>
+        <div class="logosec">
+            <div class="logo">Admin Panel</div>
+            <i class="fas fa-bars icn menuicn" id="menuicn"></i> 
+           <!-- <img id="header-logo" src="logo.png" alt="Logo" style="width: 25px; height:25px;"> -->
+        </div>
+        <div class="searchbar">
+            <input type="text" id="searchInput" placeholder="Search">
+            <button class="searchbtn">
+                <i class="fas fa-search"></i> <!-- Search button -->
+            </button>
+        </div>
+        
+    </header>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Sidebar Navigation -->
+    <div class="navcontainer">
+        <div class="nav">
+            <div class="nav-upper-options">
+                <div class="nav-option tab active" data-target="dashboard-section">
+                    <i class="fas fa-tachometer-alt nav-img"></i> Dashboard
+                </div>
+                <div class="nav-option tab" data-target="students-section">
+                    <i class="fas fa-users nav-img"></i> Students
+                </div>
+                <div class="nav-option tab" data-target="partners-section">
+                    <i class="fas fa-handshake nav-img"></i> Partners
+                </div>
+                <div class="nav-option tab" data-target="products-section">
+                    <i class="fas fa-boxes nav-img"></i> Products
+                </div>
+                <div class="nav-option tab" data-target="courses-section">
+                    <i class="fas fa-book nav-img"></i> Courses
+                </div>
+                <div class="nav-option tab" data-target="settings-section">
+                    <i class="fas fa-cogs nav-img"></i> Settings
+                </div>
+            </div>
+
+            <!-- Logout Option -->
+            <div class="nav-footer">
+                <div class="nav-option logout">
+                    <a href="login.html" color:white; text-decoration: none; ><i class="fas fa-sign-out-alt nav-img"></i><span>Logout</span></a>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main">
+        <!-- Dashboard Section (Default Page) -->
+        <div id="dashboard-section" class="box">
+            <h2>Dashboard</h2>
+            <p>Overview of your admin panel activities.</p>
+        
+            
+        </div>
+        <div class="dashboard-metrics"class="box" style="display:none;">
+            <div class="metric-box">
+                <h3>Total Students</h3>
+                <p id="total-students">0</p>
+            </div>
+            <div class="metric-boxs">
+                <h3>Last Registered Student</h3>
+                <p id="last-student">N/A</p>
+                <p id="last-date">00/00/0000</p>
+            </div>
+        </div>  
+
+        <!-- Students Section -->
+<div id="students-section" class="box" style="display:none;">
+    <h2>Students</h2>
+    <table id="student-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Course Code</th>
+                <th>Amount Paid</th>
+                <th>Date</th>
+                <th>Status of Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john.doe@example.com</td>
+                <td>Web Development</td>
+                <td>WD123</td>
+                <td>$200</td>
+                <td>2024-12-01</td>
+                <td><span class="status paid">Paid</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane</td>
+                <td>Smith</td>
+                <td>jane.smith@example.com</td>
+                <td>Data Science</td>
+                <td>DS456</td>
+                <td>$150</td>
+                <td>2024-12-05</td>
+                <td><span class="status pending">Pending</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Mark</td>
+                <td>Johnson</td>
+                <td>mark.johnson@example.com</td>
+                <td>Cloud Computing</td>
+                <td>CC789</td>
+                <td>$0</td>
+                <td>2024-12-07</td>
+                <td><span class="status not-paid">Not Paid</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+        <!-- Partners Section -->
+        <div id="partners-section" class="box" style="display:none;">
+            <h2>Manage Partners</h2>
+            <table id="partner-table">
+                <thead>
+                    <tr>
+                        <th>Partner Name</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <form id="partner-form">
+                <input id="partner-name" type="text" placeholder="Partner Name" required>
+                <input id="partner-image" type="file" accept="image/*" required>
+                <button type="submit">Add Partner</button>
+            </form>
+        </div>
+
+        <!-- Products Section -->
+        <div id="products-section" class="box" style="display:none;">
+            <h2>Manage Products</h2>
+            <table id="product-table">
+                <thead>
+                    <tr>
+                        <th>Partner Name</th>
+                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <form id="product-form">
+                <select id="product-partner">
+                    <option value="https://rebite.onrender.com/api/partners">Select Partner</option>
+                </select>
+                <input id="product-name" type="text" placeholder="Product Name" required>
+                <input id="product-image" type="file" accept="image/*" required>
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+
+        <!-- Courses Section -->
+        <div id="courses-section" class="box" style="display:none;">
+            <h2>Manage Courses</h2>
+            <table id="course-table">
+                <thead>
+                    <tr>
+                        <th>Partner Name</th>
+                        <th>Product Name</th>
+                        <th>Course Name</th>
+                        <th>Duration</th>
+                        <th>Code</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <form id="course-form">
+                <select id="course-partner">
+                    <option value="">Select Partner</option>
+                </select>
+                <select id="course-product">
+                    <option value="">Select Product</option>
+                </select>
+                <input id="course-name" type="text" placeholder="Course Name" required>
+                <input id="course-duration" type="text" placeholder="Duration" required>
+                <input id="course-code" type="text" placeholder="Course Code" required>
+                <input id="course-image" type="file" accept="image/*" required>
+                <button type="submit">Add Course</button>
+            </form>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings-section" class="box" style="display:none;">
+            <h2>Change Password</h2>
+            <form id="password-form">
+                <input id="new-password" type="password" placeholder="New Password" required>
+                <input id="confirm-password" type="password" placeholder="Confirm New Password" required>
+                <button type="submit">Change Password</button>
+            </form>
+            <p id="password-error" class="hidden" style="color: red;">Passwords do not match. Please try again.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Admin Panel - All Rights Reserved
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>
